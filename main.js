@@ -1,4 +1,4 @@
-const Default_color = '#fff';
+const Default_color = '#333333';
 const Default_size = '16';
 const Default_mode = 'color';
 
@@ -25,12 +25,35 @@ function setNewSize(newSize) {
 function setNewMode(newMode) {
     changemode(newMode);
     picked_mod = newMode;
+    
 }
 
+colorPicker.oninput = (e) => setNewColor(e.target.value);
+colorBtn.onclick = () => setNewMode('color');
+rainbowBtn.onclick = () => setNewMode('rainbow');
+eraserBtn.onclick = () => setNewMode('eraser');
+clearBtn.onclick = () => reload();
+SizeSlider.onmousemove = (e) => updateSize(e.target.value)
+SizeSlider.onchange = (e) => newSize(e.target.value)
 
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
+function newSize(value) {
+    setNewSize(value);
+    updateSize(value);
+    reload();
+}
 
+function updateSize(value){
+    SizeValue.innerHTML = `${value} x ${value}`;
+}
 
+function reload(){
+    clearGrid();
+    createGrid(picked_size);
+}
 function clearGrid() {
     grid.innerHTML = '';
 }
@@ -47,7 +70,21 @@ function createGrid(size) {
     }
 }
 
-function changemode(){
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (picked_mod === 'rainbow') {
+      const randomR = Math.floor(Math.random() * 256);
+      const randomG = Math.floor(Math.random() * 256);
+      const randomB = Math.floor(Math.random() * 256);
+      e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    } else if (picked_mod === 'color') {
+      e.target.style.backgroundColor = picked_color;
+    } else if (picked_mod === 'eraser') {
+        e.target.style.backgroundColor = '#fefefe';
+    }
+}
+
+function changemode(newMode){
     if(picked_mod === 'rainbow'){
         rainbowBtn.classList.remove('active');
     }
@@ -58,13 +95,17 @@ function changemode(){
         eraserBtn.classList.remove('active');
     }
 
-    if(picked_mod === 'rainbow'){
+    if(newMode === 'rainbow'){
         rainbowBtn.classList.add('active');
     }
-    else if(picked_mod === 'color'){
+    else if(newMode === 'color'){
         colorBtn.classList.add('active');
     }
-    else if(picked_mod === 'eraser'){
+    else if(newMode === 'eraser'){
         eraserBtn.classList.add('active');
     }
 }
+window.onload = () => {
+    createGrid(Default_size)
+    changemode(Default_mode)
+  }

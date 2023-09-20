@@ -7,6 +7,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Croissant One', cursive;
+    user-select: none;
 }
 body{
     background-color: #d1d1d1;
@@ -30,8 +31,6 @@ body{
     font-size: 1.5rem;
     width: 15rem;
     height: 3rem;
-    color: var(--color-btn);
-    background-color: greenyellow;
     border: 2px solid var(--color-btn);
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
@@ -52,8 +51,10 @@ body{
     transform: translate( -50%);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.newgrid{
+    user-select: none;
+}
 .active{
     background-color: var(--color-btn);
-    border: 2px solid greenyellow;
-    color: greenyellow;
+    color: #fff;
 }
