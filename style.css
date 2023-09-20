@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+:root{
+    --color-btn: rgb(250, 102, 17);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Croissant One', cursive;
+}
+body{
+    background-color: #d1d1d1;
+}
+.head{
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 2rem;
+    color:orange;
+    text-shadow: 2px  2px  2px red;
+}
+ .leftbar{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 15rem;
+    margin-top: 5rem;
+ }
+.leftbar button{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    width: 15rem;
+    height: 3rem;
+    color: var(--color-btn);
+    background-color: greenyellow;
+    border: 2px solid var(--color-btn);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    padding: 0.1rem;
+    cursor: pointer;
+}
+.leftbar button:hover{
+    transform: scale(1.1);
+}
+.grid{
+    position: absolute;
+    background-color: #fff;
+    width: 500px;
+    height: 500px;
+    top: 25%;
+    left: 50%;
+    transform: translate( -50%)
+}
