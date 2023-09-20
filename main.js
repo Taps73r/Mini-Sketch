@@ -35,6 +35,18 @@ function clearGrid() {
     grid.innerHTML = '';
 }
 
+function createGrid(size) {
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+        for(let i = 0; i < size * size; i++){
+            const gridMap = document.createElement('div');
+            gridMap.classList.add('newgrid');
+            gridMap.addEventListener('mouseover', changeColor);
+            gridMap.addEventListener('mousedown', changeColor);
+            grid.appendChild(gridMap);
+    }
+}
+
 function changemode(){
     if(picked_mod === 'rainbow'){
         rainbowBtn.classList.remove('active');
