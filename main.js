@@ -1,21 +1,28 @@
 const Default_color = '#333333';
 const Default_size = '16';
 const Default_mode = 'color';
+const Default_bgcolor = '#ffffff';
 
 let picked_color = Default_color;
 let picked_size = Default_size;
 let picked_mod = Default_mode;
+let picked_bgcolor = Default_bgcolor;
 
-
+const colorbgPicker = document.getElementById('colorbgPicker');
 const colorPicker = document.getElementById('colorPicker');
 const colorBtn = document.getElementById('colorBtn');
 const rainbowBtn = document.getElementById('rainbowBtn');
+const changebgBtn = document.getElementById('changebgBtn');
 const eraserBtn = document.getElementById('eraserBtn');
 const clearBtn = document.getElementById('clearBtn');
 const SizeValue = document.getElementById('sizeValue');
 const SizeSlider = document.getElementById('sizeSlider');
 const grid = document.getElementById('grid');
 
+function setNewBgColor(newbgColor){
+    picked_bgcolor = newbgColor;
+
+}
 function setNewColor(newColor){
     picked_color = newColor;
 }
@@ -27,8 +34,9 @@ function setNewMode(newMode) {
     picked_mod = newMode;
     
 }
-
+changebgBtn.onclick = () => changebgcolorGrid();
 colorPicker.oninput = (e) => setNewColor(e.target.value);
+colorbgPicker.oninput = (e) => setNewBgColor(e.target.value);
 colorBtn.onclick = () => setNewMode('color');
 rainbowBtn.onclick = () => setNewMode('rainbow');
 eraserBtn.onclick = () => setNewMode('eraser');
@@ -52,18 +60,22 @@ function updateSize(value){
 
 function reload(){
     clearGrid();
-    createGrid(picked_size);
+    createGrid(picked_size, picked_bgcolor);
 }
 function clearGrid() {
     grid.innerHTML = '';
 }
+function changebgcolorGrid(){
+    reload();
+}
 
-function createGrid(size) {
+function createGrid(size, color) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
         for(let i = 0; i < size * size; i++){
             const gridMap = document.createElement('div');
             gridMap.classList.add('newgrid');
+            gridMap.style.backgroundColor = `${color}`;
             gridMap.addEventListener('mouseover', changeColor);
             gridMap.addEventListener('mousedown', changeColor);
             grid.appendChild(gridMap);
@@ -106,6 +118,6 @@ function changemode(newMode){
     }
 }
 window.onload = () => {
-    createGrid(Default_size)
-    changemode(Default_mode)
+    createGrid(Default_size, Default_bgcolor);
+    changemode(Default_mode);
   }

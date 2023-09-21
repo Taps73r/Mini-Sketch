@@ -12,6 +12,15 @@
 body{
     background-color: #d1d1d1;
 }
+input {
+    background-color: #d1d1d1;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+  }
 .head{
     font-size: 5rem;
     text-align: center;
@@ -40,6 +49,30 @@ body{
 .leftbar button:hover{
     transform: scale(1.1);
 }
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 50px;
+    height: 50px;
+    border: none;
+  }
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+  }
+.leftbar input:hover{
+    transform: scale(1.1);
+}
+
 .grid{
     display: grid;
     position: absolute;
@@ -58,3 +91,164 @@ body{
     background-color: var(--color-btn);
     color: #fff;
 }
+.size-value{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.bg-text{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 1530px) {
+    .grid {
+        width: 400px;
+        height: 400px;
+    }
+    .leftbar{
+        margin-left: 13rem;
+     }
+  }
+  @media (max-width: 1350px) {
+    .grid {
+        width: 400px;
+        height: 400px;
+    }
+    .leftbar{
+        margin-left: 11rem;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 13rem;
+        height: 3rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 1200px) {
+    .grid {
+        width: 350px;
+        height: 350px;
+    }
+    .leftbar{
+        margin-left: 9rem;
+     }
+  }
+  @media (max-width: 1080px) {
+    .grid {
+        width: 300px;
+        height: 300px;
+    }
+    .leftbar{
+        margin-left: 8rem;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 900px) {
+    .grid {
+        width: 300px;
+        height: 300px;
+    }
+    .leftbar{
+        margin-left: 5rem;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 800px) {
+    .grid {
+        width: 300px;
+        height: 300px;
+    }
+    .leftbar{
+        margin-left: 3rem;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 750px) {
+    .grid {
+        width: 300px;
+        height: 300px;
+    }
+    .leftbar{
+        margin-top: 25rem;
+        align-items: center;
+        margin-bottom: 2rem;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 488px) {
+    .grid {
+        width: 300px;
+        height: 300px;
+        top: 35%;
+        left: 50%;
+    }
+    .leftbar{
+        margin-top: 25rem;
+        align-items: center;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
+  @media (max-width: 340px) {
+    .grid {
+        width: 250px;
+        height: 250px;
+        top: 35%;
+        left: 50%;
+    }
+    .leftbar{
+        margin-top: 25rem;
+        align-items: center;
+     }
+     .leftbar button{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+        height: 2rem;
+    }
+    .bg-text{
+        font-size: 1rem;  
+    }
+  }
